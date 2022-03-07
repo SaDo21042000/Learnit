@@ -1,0 +1,52 @@
+POST http://localhost:5001/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "sado3",
+    "password":"sado3"
+}
+
+###
+
+POST http://localhost:5001/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "sado3",
+    "password": "sado3"
+}
+
+###
+POST http://localhost:5001/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjFlZDc1NzgyNWExMTU3ZGUwNTFiNDAiLCJpYXQiOjE2NDYxODgzNzV9.7UFfDmxEt9RpWTcp72cDXP2_r3EVBi1rWd7t821-Q-A
+
+{
+    "title": "React",
+    "description": "React",
+    "url": "react.com",
+    "status":"LEARNING"
+}
+
+### 
+GET http://localhost:5001/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjFlZDc1NzgyNWExMTU3ZGUwNTFiNDAiLCJpYXQiOjE2NDYxODk5Njh9.0zK7QieDRjaKADGyNEeqrxojflK0D0Om26P4j-hMdyo
+
+###
+
+PUT http://localhost:5001/api/posts/621ed7fd825a1157de051b44
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjFlZDc1NzgyNWExMTU3ZGUwNTFiNDAiLCJpYXQiOjE2NDYxODk5Njh9.0zK7QieDRjaKADGyNEeqrxojflK0D0Om26P4j-hMdyo
+
+{
+    "title": "Vue",
+    "description": "Vueeee",
+    "url": "https://Vue.org",
+    "status": "LEARNED"
+}
+
+
+### 
+
+DELETE http://localhost:5001/api/posts/621ed7fd825a1157de051b44
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjFlZDc1NzgyNWExMTU3ZGUwNTFiNDAiLCJpYXQiOjE2NDYxODk5Njh9.0zK7QieDRjaKADGyNEeqrxojflK0D0Om26P4j-hMdyo
