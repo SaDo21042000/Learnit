@@ -2,8 +2,8 @@ POST http://localhost:5001/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "sado3",
-    "password":"sado3"
+    "username": "sado",
+    "password":"sado"
 }
 
 ###
@@ -12,20 +12,20 @@ POST http://localhost:5001/api/auth/login
 Content-Type: application/json
 
 {
-    "username": "sado3",
-    "password": "sado3"
+    "username": "sado",
+    "password": "sado"
 }
 
 ###
 POST http://localhost:5001/api/posts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjFlZDc1NzgyNWExMTU3ZGUwNTFiNDAiLCJpYXQiOjE2NDYxODgzNzV9.7UFfDmxEt9RpWTcp72cDXP2_r3EVBi1rWd7t821-Q-A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjFkZTA5MjZiOTEwNTA0ZTllMjJmN2MiLCJpYXQiOjE2NDY3OTc1ODh9.g9dvksZX-yMcZvTo8z4vUCogXs0g2YuHn6D3pGFAE1o
 
 {
-    "title": "React",
-    "description": "React",
+    "title": "React3",
+    "description": "React3",
     "url": "react.com",
-    "status":"LEARNING"
+    "status":"TO LEARN"
 }
 
 ### 
