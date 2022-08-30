@@ -17,7 +17,7 @@ const UpdatePostModal = () => {
   //State
   const [updatedPost, setUpdatedPost] = useState(post);
 
-  console.log(post);
+  //console.log(post);
 
   useEffect(() => setUpdatedPost(post), [post])
    

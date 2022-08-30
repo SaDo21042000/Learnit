@@ -20,12 +20,14 @@ const AuthContextProvider = ({ children }) => {
     }
 
     try {
-      const response = await axios.get(`${apiUrl}/auth`);
+      const response = await axios.get(`${apiUrl}/auth`);//  
       if (response.data.success) {
         dispatch({
           type: "SET_AUTH",
           payload: { isAuthenticated: true, user: response.data.user },
         });
+      } else {
+        console.log(response.data.message)
       }
     } catch (error) {
       localStorage.removeItem(LOCAL_STORAGE_TOKEN_NAME);
@@ -35,9 +37,14 @@ const AuthContextProvider = ({ children }) => {
         payload: { isAuthenticated: false, user: null },
       });
     }
+    
   };
 
   useEffect(() => loadUser(), []);
+
+  //[] -> Chay useEffect 1 lan
+  //([dependencies]) -> Chay 1 lan, khi state thay doi thi no chay lai
+  
 
   //Login
   const loginUser = async (userForm) => {
@@ -95,7 +102,7 @@ const AuthContextProvider = ({ children }) => {
     <AuthContext.Provider value={authContextData}>
       {children}
     </AuthContext.Provider>
-  );
+  );  
 };
 
 export default AuthContextProvider;

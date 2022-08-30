@@ -10,7 +10,9 @@ const postRouter = require('./routes/post')
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.pmz5b.mongodb.net/test?authSource=admin&replicaSet=atlas-bh5rbl-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true`,
+      //`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.pmz5b.mongodb.net/test?authSource=admin&replicaSet=atlas-bh5rbl-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true`,
+      //`mongodb+srv://LearnItApp:Dovansa21042000@cluster0.pzbj4fe.mongodb.net/test`,
+      `mongodb+srv://LearnItApp:Dovansa21042000@cluster0.pzbj4fe.mongodb.net/LearnIt`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,

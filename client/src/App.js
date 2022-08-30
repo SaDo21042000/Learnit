@@ -23,7 +23,7 @@ function App() {
           <Route
             exact
             path="/login"
-            render={(props) => <Auth {...props} authRoute="login" />}
+            render={(props) => <Auth {...props} authRoute="login" />} 
           />
           <Route
             exact

@@ -41,7 +41,7 @@ const RegisterForm = () => {
         setTimeout(() => setAlert(null), 5000);
       }
 
-      console.log(registerData);
+      //console.log(registerData);
     } catch (error) {
       console.log(error);
     }

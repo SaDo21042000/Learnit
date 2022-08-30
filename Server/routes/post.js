@@ -24,7 +24,7 @@ router.get("/", verifyToken, async (req, res) => {
 //@access Private
 router.post("/", verifyToken, async (req, res) => {
   const { title, description, url, status } = req.body;
-  console.log("check");
+
 
   //Simple validation
   if (!title) {
@@ -86,7 +86,7 @@ router.put("/:id", verifyToken, async (req, res) => {
         .status(401)
         .json({
           success: false,
-          message: "Post not found or user not authorised"
+          message: "Post not found or user not authorized"
         });
     }
 
