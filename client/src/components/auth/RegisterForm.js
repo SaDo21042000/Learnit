@@ -15,22 +15,25 @@ const RegisterForm = () => {
   const [registerForm, setRegisterForm] = useState({
     username: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   const [alert, setAlert] = useState(null);
 
   const { username, password, confirmPassword } = registerForm;
   const onChangeRegisterForm = (event) =>
-    setRegisterForm({ ...registerForm, [event.target.name]: event.target.value });
+    setRegisterForm({
+      ...registerForm,
+      [event.target.name]: event.target.value,
+    });
 
   const register = async (event) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      setAlert({type: 'danger', message: 'Password do not match'})
-      setTimeout(() => setAlert(null), 5000)
-      return
+      setAlert({ type: "danger", message: "Password do not match" });
+      setTimeout(() => setAlert(null), 5000);
+      return;
     }
     try {
       const registerData = await registerUser(registerForm);
@@ -61,7 +64,7 @@ const RegisterForm = () => {
             onChange={onChangeRegisterForm}
           />
         </Form.Group>
-        <Form.Group>
+        <Form.Group className="mt-2">
           <Form.Control
             type="password"
             placeholder="Password"
@@ -71,7 +74,7 @@ const RegisterForm = () => {
             onChange={onChangeRegisterForm}
           />
         </Form.Group>
-        <Form.Group>
+        <Form.Group className="mt-2">
           <Form.Control
             type="password"
             placeholder="Confirm Password"
@@ -81,7 +84,7 @@ const RegisterForm = () => {
             onChange={onChangeRegisterForm}
           />
         </Form.Group>
-        <Button variant="success" type="submit">
+        <Button variant="success" type="submit" className="mt-2">
           Register
         </Button>
         <p>

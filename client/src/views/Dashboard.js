@@ -30,10 +30,9 @@ const Dashboard = () => {
     setShowToast,
   } = useContext(PostContext);
 
-
   //Start: Get all posts
   useEffect(() => getPosts(), []);
-  
+
   let body = null;
 
   if (postsLoading) {
@@ -52,7 +51,12 @@ const Dashboard = () => {
             <Card.Text>
               Click the button below to track your first skill to learn
             </Card.Text>
-            <Button variant="primary" onClick={setShowAddPostModal.bind(this,true)}>LearnIt!</Button>
+            <Button
+              variant="primary"
+              onClick={setShowAddPostModal.bind(this, true)}
+            >
+              LearnIt!
+            </Button>
           </Card.Body>
         </Card>
       </>
@@ -84,7 +88,7 @@ const Dashboard = () => {
     <>
       {body}
       <AddPostModal />
-{post !== null && <UpdatePostModal />}
+      {post !== null && <UpdatePostModal />}
       {/*After post is added, show toast*/}
       <Toast
         show={show}
@@ -92,7 +96,7 @@ const Dashboard = () => {
         className={`bg-${type} text-white`}
         onClose={setShowToast.bind(this, {
           show: false,
-          message: '',
+          message: "",
           type: null,
         })}
         delay={3000}

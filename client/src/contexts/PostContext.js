@@ -7,7 +7,7 @@ import {
   ADD_POST,
   DELETE_POST,
   UPDATE_POST,
-  FIND_POST
+  FIND_POST,
 } from "./constants";
 import axios from "axios";
 
@@ -68,25 +68,28 @@ const PostContextProvider = ({ children }) => {
   };
 
   //Find post when user is updating post
-  const findPost = postId => {
-    const post = postState.posts.find(post => post._id === postId)
-    dispatch({type: FIND_POST, payload: post})
-  }
+  const findPost = (postId) => {
+    const post = postState.posts.find((post) => post._id === postId);
+    dispatch({ type: FIND_POST, payload: post });
+  };
 
   //Update post
-  const updatePost = async updatedPost => {
+  const updatePost = async (updatedPost) => {
     try {
-        const response = await axios.put(`${apiUrl}/posts/${updatedPost._id}`, updatedPost)
-        if(response.data.success) {
-          dispatch({type: UPDATE_POST, payload: response.data.post})
-          return response.data;
-        }
+      const response = await axios.put(
+        `${apiUrl}/posts/${updatedPost._id}`,
+        updatedPost
+      );
+      if (response.data.success) {
+        dispatch({ type: UPDATE_POST, payload: response.data.post });
+        return response.data;
+      }
     } catch (error) {
       return error.response.data
         ? error.response.data
         : { success: false, message: "Server error" };
     }
-  }
+  };
 
   //Post context data
   const postContextData = {
@@ -101,7 +104,7 @@ const PostContextProvider = ({ children }) => {
     setShowToast,
     deletePost,
     findPost,
-    updatePost
+    updatePost,
   };
 
   return (

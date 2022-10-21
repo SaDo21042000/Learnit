@@ -1,44 +1,45 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import {useContext, useState} from 'react'
+import { useContext, useState } from "react";
 import { PostContext } from "../../contexts/PostContext";
 
 const AddPostModal = () => {
   //Contexts
-  const {showAddPostModal, setShowAddPostModal, addPost, setShowToast} = useContext(PostContext)
+  const { showAddPostModal, setShowAddPostModal, addPost, setShowToast } =
+    useContext(PostContext);
 
   //State
   const [newPost, setNewPost] = useState({
-    title: '',
-    description: '',
-    url: '',
-    status: 'TO LEARN'
-  })
-  
+    title: "",
+    description: "",
+    url: "",
+    status: "TO LEARN",
+  });
 
-  const {title, description, url} = newPost
+  const { title, description, url } = newPost;
 
-  const onChangeNewPostForm = event => setNewPost({...newPost, [event.target.name]: event.target.value})
+  const onChangeNewPostForm = (event) =>
+    setNewPost({ ...newPost, [event.target.name]: event.target.value });
 
-const closeDialog = () => {
-  resetAddPostData();
-}
+  const closeDialog = () => {
+    resetAddPostData();
+  };
 
-const onSubmit = async event => {
-  event.preventDefault()
-  const {success, message} = await addPost(newPost)
-  resetAddPostData()
-  setShowToast({show: true, message, type: success ? 'success' : 'danger'})
-}
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const { success, message } = await addPost(newPost);
+    resetAddPostData();
+    setShowToast({ show: true, message, type: success ? "success" : "danger" });
+  };
 
-const resetAddPostData = () =>  {
-  setNewPost({title: '', description: '', url: '', status: 'TO LEARN'})
-  setShowAddPostModal(false)
-}
+  const resetAddPostData = () => {
+    setNewPost({ title: "", description: "", url: "", status: "TO LEARN" });
+    setShowAddPostModal(false);
+  };
 
   return (
-    <Modal show={showAddPostModal}  animation={false} onHide={closeDialog}>
+    <Modal show={showAddPostModal} animation={false} onHide={closeDialog}>
       <Modal.Header closeButton>
         <Modal.Title>What do you want to learn </Modal.Title>
       </Modal.Header>
@@ -79,7 +80,9 @@ const resetAddPostData = () =>  {
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={closeDialog}>Cancel</Button>
+          <Button variant="secondary" onClick={closeDialog}>
+            Cancel
+          </Button>
           <Button variant="primary" type="submit">
             LearnIt!
           </Button>
@@ -88,6 +91,5 @@ const resetAddPostData = () =>  {
     </Modal>
   );
 };
-
 
 export default AddPostModal;

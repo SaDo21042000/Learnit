@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
-const verifyToken = require("../middleware/auth")
+const verifyToken = require("../middleware/auth");
 
 const User = require("../models/User");
 
@@ -89,9 +89,7 @@ router.post("/login", async (req, res) => {
     //Username found
     const passwordValid = await argon2.verify(user.password, password);
     if (!passwordValid) {
-      return res
-        .status(400)
-        .status({ success: false, message: "Incorrect username or password" });
+      return res.status(400).json({ success: false, message: "Incorrect username or password" });
     }
 
     //All good
