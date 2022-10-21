@@ -1,5 +1,5 @@
 export const apiUrl =
-  process.env.NOE_ENV !== "production"
+  process.env.NODE_ENV !== "production"
     ? "http://localhost:5001/api"
     : "https://shielded-hamlet-86304.herokuapp.com/api";
 //export const apiUrl =
