@@ -1,7 +1,11 @@
 export const apiUrl =
   process.env.NOE_ENV !== "production"
     ? "http://localhost:5001/api"
-    : "somedeployedURL";
+    : "https://shielded-hamlet-86304.herokuapp.com/api";
+//export const apiUrl =
+//  process.env.NODE_ENV !== "production"
+//    ?  "https://shielded-hamlet-86304.herokuapp.com/api"
+//    : "somedeployedURL";
 
 export const LOCAL_STORAGE_TOKEN_NAME = "learnit-mern";
 
